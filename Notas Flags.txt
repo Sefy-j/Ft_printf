@@ -1,0 +1,30 @@
+int main()
+{
+	int i;
+	int j;
+
+	i = ft_printf("%1s", "abc");
+	printf("\nNum: %d\n", i);
+	j = printf("%1s", "abc");
+	printf("\nNum: %d\n", j);
+}
+
+%[Flags][Width].[Precision][Specifier]
+Width: Numero de caracteres mínimo a imprimir. Si no se especifica, se añaden espacios a la izquierda. Si lo que voy a imprimir es mas grande, no hace nada. 
+Si hay conversiones (por ej, con la precision), este valor se comprueba al final.
+
+Precision: Separado por un . del width (width.precision). 
+	x y X, d, i u: Número MÍNIMO de números que deben aparecer. Es decir, añade 0s a la izquierda 
+		si no llego a ese valor de dígitos. Si prec == 0, NO se imprime el numero 0.
+	s: Número MÁXIMO de caracteres a imprimir del string. Por ejemplo, si es 2, de "Hola" solo imprimiría "Ho". 
+		Si tuviese también width de, p. ej 4, imprimiría "  Ho", ya que el valor del width se comprueba tras los cambios que pueda sufrir.
+
+Flags:
+	#: SOLO en x Y X. Cambia a forma alternativa de escribir. Añade 0x u 0X respectivamente antes del numero a escribir, excepto si el valor a imprimir es 0.
+	0: SOLO en números (decimales y hexa). En vez de añadir espacios hasta el width, se añaden 0s. Si se añade el flag "-", o una precision, el flag "0"SE IGNORA.
+	-: En lugar de añadir espacios a la izquierda hasta llegar al width, añade espacios a la derecha. SOBREESCRIBE al flag "0".
+	" " (un espacio): Añade un espacio antes de un numero positivo. SOLO funciona con números signados (d, i)
+	+: Añade el signo (positivo o negativo) SIEMPRE en números signados (d, i)
+	
+https://csnotes.medium.com/ft-printf-tutorial-42project-f09b6dc1cd0e
+https://github.com/madebypixel02/ft_printf
